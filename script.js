@@ -156,6 +156,12 @@ function wrapText(context, text, x, y, maxWidth, lineHeight) {
 }
 
 // Game logic functions
+// Bot stuck detection variables
+let botLastX = botX;
+let botLastY = botY;
+let botStuckTimer = 0;
+const botStuckThreshold = 1000; // Time in milliseconds (1 second)
+
 function updateBot() {
     // Boundary checks for the bot
     let newBotX = botX + botSpeed * botDirectionX;
@@ -229,6 +235,27 @@ function updateBot() {
     if (boxesDestroyed === boxes.length) {
         gameOver = true;
     }
+    // Bot stuck detection
+    if (botX === botLastX && botY === botLastY) {
+        botStuckTimer += 16; // Assuming 60 FPS, so roughly 16ms per frame
+    } else {
+        botStuckTimer = 0;
+    }
+
+    if (botStuckTimer >= botStuckThreshold) {
+        // Teleport the bot to a new location
+        teleportBot();
+        botStuckTimer = 0;
+    }
+
+    botLastX = botX;
+    botLastY = botY;
+}
+function teleportBot() {
+    // Teleport the bot to a random location on the canvas
+    botX = Math.random() * (canvas.width - botSize);
+    botY = Math.random() * (canvas.height - botSize);
+    console.log("Bot teleported!");
 }
 
 function checkCollision(x1, y1, w1, h1, x2, y2, w2, h2) {
