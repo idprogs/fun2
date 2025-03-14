@@ -4,7 +4,7 @@ const ctx = canvas.getContext('2d');
 // Game variables
 let playerX = 50;
 let playerY = 500;
-const playerSize = 30;
+const playerSize = 60; // Increased player size to match image
 const playerSpeed = 10;
 
 let botX = 700;
@@ -24,16 +24,16 @@ let boxesDestroyed = 0;
 //Bot image variables
 let botImageForward1 = new Image();
 //Updated to use the images directory.
-botImageForward1.src = 'images/muskf1.png';
+botImageForward1.src = 'images/muskf1.jpg';
 let botImageForward2 = new Image();
 //Updated to use the images directory.
-botImageForward2.src = 'images/muskf2.png';
+botImageForward2.src = 'images/muskf2.jpg';
 let botImageBackward1 = new Image();
 //Updated to use the images directory.
-botImageBackward1.src = 'images/muskb1.png';
+botImageBackward1.src = 'images/muskb1.jpg';
 let botImageBackward2 = new Image();
 //Updated to use the images directory.
-botImageBackward2.src = 'images/muskb2.png';
+botImageBackward2.src = 'images/muskb2.jpg';
 let currentBotImage = botImageBackward1;
 let animationFrame = 0; // To alternate images
 
@@ -82,6 +82,9 @@ const logoImages = agencyLogos.map(src => {
     return img;
 });
 
+//Player Image
+const playerImage = new Image();
+playerImage.src = 'images/player.png';
 
 // Game state
 let gamePaused = false;
@@ -122,8 +125,9 @@ initBoxes();
 
 // Draw functions
 function drawPlayer() {
-  ctx.fillStyle = 'blue';
-  ctx.fillRect(playerX, playerY, playerSize, playerSize);
+  //ctx.fillStyle = 'blue'; //Removed blue square
+  //ctx.fillRect(playerX, playerY, playerSize, playerSize); //Removed blue square
+  ctx.drawImage(playerImage, playerX, playerY, playerSize, playerSize); //Draws the player image
 }
 
 function drawBot() {
