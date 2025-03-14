@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Game</title>
+    <style>
+        body {
+            background-color: lightgray;
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            justify-content: center; /* Center vertically */
+            align-items: center; /* Center horizontally */
+            height: 100vh;
+            margin: 0;
+        }
+        #startButton {
+            margin-bottom: 20px; /* Add space between button and canvas */
+            padding: 10px 20px; /* Add padding to the button*/
+            font-size: 16px; /* Increase font size*/
+        }
+        #gameCanvas {
+            background-color: white;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="startButton">Start Game</button>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <script src="script.js"></script>
+</body>
+</html>
