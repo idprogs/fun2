@@ -23,13 +23,13 @@ let boxesDestroyed = 0;
 
 // Bot image variables
 let botImageForward1 = new Image();
-botImageForward1.src = 'images/muskf1.jpg';
+botImageForward1.src = 'images/muskf1.png';
 let botImageForward2 = new Image();
-botImageForward2.src = 'images/muskf2.jpg';
+botImageForward2.src = 'images/muskf2.png';
 let botImageBackward1 = new Image();
-botImageBackward1.src = 'images/muskb1.jpg';
+botImageBackward1.src = 'images/muskb1.png';
 let botImageBackward2 = new Image();
-botImageBackward2.src = 'images/muskb2.jpg';
+botImageBackward2.src = 'images/muskb2.png';
 let currentBotImage = botImageBackward1;
 let animationFrame = 0;
 
@@ -75,7 +75,7 @@ playerImage.src = 'images/player.png';
 // Game state
 let gamePaused = false;
 let pauseStartTime = 0;
-const factoidPauseDuration = 2000;
+const factoidPauseDuration = 4000;
 let displayedFactoid = "";
 let factoidVisible = false;
 
